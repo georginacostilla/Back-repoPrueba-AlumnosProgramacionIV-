@@ -1,4 +1,6 @@
-# Programación IV — UTN FRT - Georgina Costilla
+# Programación IV - UTN FRT
+# Georgina Costilla
+<img alt="NestJS" src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white"/>
 
 Proyecto de práctica para trabajar con **NestJS**, organización por módulos, controladores, servicios, DTO y validación de datos.
 
