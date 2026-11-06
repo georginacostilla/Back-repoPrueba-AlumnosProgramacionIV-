@@ -9,27 +9,29 @@ import {
 } from 'class-validator';
 
 export class CreatePublicacioneDto {
-  @IsString()
-  @IsNotEmpty()
-  @MinLength(1)
-  @MaxLength(150)
+  @IsString({ message: 'El título debe ser un texto.' })
+  @IsNotEmpty({ message: 'El título es obligatorio.' })
+  @MinLength(1, { message: 'El título no puede estar vacío.' })
+  @MaxLength(150, { message: 'El título no puede superar los 150 caracteres.' })
   titulo: string;
 
-  @IsString()
-  @IsNotEmpty()
-  @MinLength(1)
-  @MaxLength(5000)
+  @IsString({ message: 'El contenido debe ser un texto.' })
+  @IsNotEmpty({ message: 'El contenido es obligatorio.' })
+  @MinLength(1, { message: 'El contenido no puede estar vacío.' })
+  @MaxLength(5000, {
+    message: 'El contenido no puede superar los 5000 caracteres.',
+  })
   contenido: string;
 
-  @IsString()
-  @IsNotEmpty()
-  @MaxLength(100)
+  @IsString({ message: 'El autor debe ser un texto.' })
+  @IsNotEmpty({ message: 'El autor es obligatorio.' })
+  @MaxLength(100, { message: 'El autor no puede superar los 100 caracteres.' })
   autor: string;
 
-  @IsDateString()
+  @IsDateString({}, { message: 'La fecha de publicación debe ser válida.' })
   fechaPublicacion: string;
 
   @IsOptional()
-  @IsUrl()
+  @IsUrl({}, { message: 'La URL debe tener un formato válido.' })
   url?: string;
 }
