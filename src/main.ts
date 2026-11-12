@@ -12,5 +12,5 @@ async function bootstrap() {
 }
 await bootstrap();
 
-//De esta manera, NestJS validará los datos recibidos antes de ejecutar 
+// De esta manera, NestJS validará los datos recibidos antes de ejecutar 
 // el método del controlador.

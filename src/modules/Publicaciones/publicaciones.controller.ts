@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { PublicacionesService } from './publicaciones.service.js';
 import { CreatePublicacioneDto } from './dto/create-publicacione.dto.js';
 import { UpdatePublicacioneDto } from './dto/update-publicacione.dto.js';
@@ -18,17 +27,20 @@ export class PublicacionesController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.publicacionesService.findOne(+id);
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.publicacionesService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePublicacioneDto: UpdatePublicacioneDto) {
-    return this.publicacionesService.update(+id, updatePublicacioneDto);
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updatePublicacioneDto: UpdatePublicacioneDto,
+  ) {
+    return this.publicacionesService.update(id, updatePublicacioneDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.publicacionesService.remove(+id);
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.publicacionesService.remove(id);
   }
 }

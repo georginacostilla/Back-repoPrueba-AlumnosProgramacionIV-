@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  nombre       String   @db.VarChar(80)
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Libro {
+  id              Int      @id @default(autoincrement())
+  titulo          String   @db.VarChar(100)
+  autor           String   @db.VarChar(100)
+  editorial       String   @db.VarChar(100)
+  anioPublicacion Int
+  isbn            String   @unique @db.VarChar(17)
+  precio          Decimal  @db.Decimal(10, 2)
+  descripcion     String?  @db.VarChar(2000)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Publicacion {
+  id               Int      @id @default(autoincrement())
+  titulo           String   @db.VarChar(150)
+  contenido        String   @db.VarChar(5000)
+  autor            String   @db.VarChar(100)
+  fechaPublicacion DateTime @db.Timestamptz(3)
+  url              String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Tesis {
+  id          Int      @id @default(autoincrement())
+  nombre      String   @db.VarChar(150)
+  descripcion String   @db.VarChar(5000)
+  estado      Boolean
+  autor       String   @db.VarChar(100)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

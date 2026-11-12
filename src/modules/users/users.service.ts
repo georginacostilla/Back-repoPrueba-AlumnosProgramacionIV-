@@ -1,26 +1,36 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotImplementedException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto.js';
 import { UpdateUserDto } from './dto/update-user.dto.js';
 
 @Injectable()
 export class UsersService {
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+  create(_createUserDto: CreateUserDto): never {
+    throw new NotImplementedException(
+      'La gestión de usuarios se implementará junto con autenticación.',
+    );
   }
 
-  findAll() {
-    return `This action returns all users`;
+  findAll(): never {
+    throw new NotImplementedException(
+      'La gestión de usuarios se implementará junto con autenticación.',
+    );
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findOne(_id: number): never {
+    throw new NotImplementedException(
+      'La gestión de usuarios se implementará junto con autenticación.',
+    );
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  update(_id: number, _updateUserDto: UpdateUserDto): never {
+    throw new NotImplementedException(
+      'La gestión de usuarios se implementará junto con autenticación.',
+    );
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  remove(_id: number): never {
+    throw new NotImplementedException(
+      'La gestión de usuarios se implementará junto con autenticación.',
+    );
   }
 }

@@ -6,9 +6,12 @@ import { AuthModule } from '../auth/auth.module.js';
 import { LibrosModule } from '../Libros/libros.module.js';
 import { TesisModule } from '../tesis/tesis.module.js';
 import { PublicacionesModule } from '../Publicaciones/publicaciones.module.js';
+import { PrismaModule } from '../prisma/prisma.module.js';
 
 @Module({
-  imports: [UsersModule,
+  imports: [
+    PrismaModule,
+    UsersModule,
     AuthModule,
     LibrosModule,
     TesisModule,
@@ -17,4 +20,4 @@ import { PublicacionesModule } from '../Publicaciones/publicaciones.module.js';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
