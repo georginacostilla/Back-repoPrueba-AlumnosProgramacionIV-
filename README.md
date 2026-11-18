@@ -29,9 +29,9 @@ La API queda disponible en `http://localhost:3000`. Para cambiar el puerto, defi
 Las rutas de autenticación son:
 
 - `POST /auth/register` — recibe `nombre`, `email` y `password`.
-- `POST /auth/login` — recibe `email` y `password`.
+- `POST /auth/login` — recibe `email` y `password`; devuelve un JWT con una hora de vigencia.
 
-> **Nota:** Las rutas de registro e inicio de sesión son una base para la práctica. Aún requieren persistencia de usuarios y manejo seguro de contraseñas para funcionar.
+Las rutas de `users` no requieren token ni guards. El endpoint de login entrega un JWT, pero todavía no se utiliza para proteger rutas. Las contraseñas se almacenan con bcrypt y nunca se incluyen en las respuestas.
 
 ## DTO y validaciones
 

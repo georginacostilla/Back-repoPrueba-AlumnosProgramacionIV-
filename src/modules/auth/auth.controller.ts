@@ -18,5 +18,5 @@ export class AuthController {
   }
 }
 
-// Este modulo solo utiliza el metodo POST, ya que no se necesita obtener datos de la base 
-// de datos, solo se necesita enviar datos para registrarse o iniciar sesion.
+// Este modulo solo utiliza el metodo POST, ya que no es necesario exponer 
+// otros metodos para el registro y login de usuarios.
